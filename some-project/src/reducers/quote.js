@@ -1,35 +1,38 @@
 import {
-    FETCH_CALENDAR_START,
-    FETCH_CALENDAR_SUCCESS,
-    FETCH_CALENDAR_ERROR
-} from "../actions/calendar";
+    FETCH_QUOTE_START,
+    FETCH_QUOTE_SUCCESS,
+    FETCH_QUOTE_ERROR
+} from "../actions/quote";
 
 const initialState = {
-    event: null,
+    quote: null,
     isLoading: false,
     error: null
 };
 
 export function reducer(state = initialState, action) {
     switch (action.type) {
-        case FETCH_CALENDAR_START:
+        case FETCH_QUOTE_START:
             return {
                 ...state,
                 isLoading: true
             }
 
-        case FETCH_CALENDAR_SUCCESS:
+        case FETCH_QUOTE_SUCCESS:
             return {
                 ...state,
-                event: action.payload,
+                quote: action.payload,
                 isLoading: false
             }
 
-        case FETCH_CALENDAR_ERROR:
+        case FETCH_QUOTE_ERROR:
             return {
                 ...state,
                 error: action.payload,
                 isLoading: false
             }
+
+        default:
+            return state;
     }
 }
